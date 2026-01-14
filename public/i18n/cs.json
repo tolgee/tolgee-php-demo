@@ -1,0 +1,47 @@
+{
+  "add_button": "Přidat",
+  "add-item-add-button": "Přidat",
+  "add-item-input-placeholder": "Nová položka seznamu",
+  "app-title": "Co si zabalit",
+  "app": {
+    "title": "Vítejte v naší ukázkové aplikaci"
+  },
+  "aptitlep-title-2": "A mnohem více",
+  "button": {
+    "save": "Uložit"
+  },
+  "delete-item-button": "Smazat!",
+  "eat_pita": "Jezte pitu!",
+  "edit-button": "Upravit toto",
+  "edit-button\n                  ": "Upravit toto",
+  "edit_button": "Upravit",
+  "edit-button-item-key": "Upravit položku klíč",
+  "edit-item-button": "Upravit položku",
+  "greeting": "Ahoj {name}",
+  "hello": "Jé! Ahoj!",
+  "menu-item-translation-methods": "Metody překladu",
+  "menu": {
+    "logout": "Odhlásit se"
+  },
+  "modify-item-button": "Upravit",
+  "modify-key": "Upravit data",
+  "my-own-key": "Moje vlastní klíč",
+  "new_item_input": "Nová položka do vašeho seznamu",
+  "notification": {
+    "success": "Změny byly úspěšně uloženy."
+  },
+  "plural": "{value, plural, one {Je jeden # pes.} few {Jsou # psi.} many {Je půl # psa.} other {Je # psů.}}",
+  "result_count": "{value, plural, one {zobrazuje jeden výsledek} few {zobrazuje # výsledky} other {zobrazuje # výsledků} }",
+  "send-to-email": "poslat na e-mail",
+  "send-via-email": "Odeslat e-mailem",
+  "share-button": "Tlačítko Sdílet",
+  "test": "Toto je další příklad",
+  "this_is_a_key": "Toto je klíč",
+  "this_is_a_key_with_params": "Toto je klíč s parametry {key} {key2}",
+  "this_is_a_key_with_tags": "Toto je klíč s tagy <b>tučné</b> <b><i>{key}</i></b>",
+  "this-is-random-key": "Náhodný klíč",
+  "this-shows-translation-history": "I changed it",
+  "users": {
+    "online": "{count, plural, one {Je přihlášen # uživatel} few {Jsou přihlášeni # uživatelé} other {Je přihlášeno # uživatelů}}"
+  }
+}

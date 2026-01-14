@@ -1,0 +1,47 @@
+{
+  "add_button": "Ajouter",
+  "add-item-add-button": "Ajouter",
+  "add-item-input-placeholder": "Nouveau élément de la liste",
+  "app-title": "Quoi emballer",
+  "app": {
+    "title": "Bienvenue dans notre application de démonstration"
+  },
+  "aptitlep-title-2": "Et bien plus encore",
+  "button": {
+    "save": "Enregistrer"
+  },
+  "delete-item-button": "Supprimer",
+  "eat_pita": "Mangez du pita !",
+  "edit-button": "Modifier ceci",
+  "edit-button\n                  ": "Modifier ceci",
+  "edit_button": "Modifier",
+  "edit-button-item-key": "Modifier la clé de l’élément",
+  "edit-item-button": "Modifier l’élément",
+  "greeting": "Bonjour {name}",
+  "hello": "Oh ! Bonjour !",
+  "menu-item-translation-methods": "Méthodes de la traduction",
+  "menu": {
+    "logout": "Se déconnecter"
+  },
+  "modify-item-button": "Modifier",
+  "modify-key": "Modifier les données",
+  "my-own-key": "Ma propre clé",
+  "new_item_input": "Nouvel élément à votre liste",
+  "notification": {
+    "success": "Vos modifications ont été enregistrées avec succès"
+  },
+  "plural": "{value, plural, one {Il y a un # chien.} other {Il y a # chiens.} }",
+  "result_count": "{value, plural, one {affichage d'un résultat} other {affichage de # résultats} }",
+  "send-to-email": "envoyer par e-mail",
+  "send-via-email": "Envoyer par e-mail",
+  "share-button": "Partager",
+  "test": "Ceci est un autre exemplee",
+  "this_is_a_key": "C'est un clé",
+  "this_is_a_key_with_params": "C'est la clé avec paramètres {key} {key2}",
+  "this_is_a_key_with_tags": "C'est la clé avec des tags <b>bold</b> <b><i>{key}</i></b>",
+  "this-is-random-key": "Clé aléatoire",
+  "this-shows-translation-history": "Je viens de le modifier à nouveau, désolé encore",
+  "users": {
+    "online": "{count, plural, one {Il y a # utilisateur en ligne} other {Il y a # utilisateurs en ligne} }"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "add_button": "Add button",
+  "add-item-add-button": "Add",
+  "add-item-input-placeholder": "New list item",
+  "app-title": "What to pack! An packing app!",
+  "app": {
+    "title": "Welcome to our demo app"
+  },
+  "aptitlep-title-2": "And much more",
+  "button": {
+    "save": "Save"
+  },
+  "delete-item-button": "Delete",
+  "eat_pita": "Eat pita!",
+  "edit-button": "Edit this",
+  "edit-button\n                  ": "Edit this",
+  "edit_button": "Edit button",
+  "edit-button-item-key": "Edit item key",
+  "edit-item-button": "Edit item",
+  "greeting": "Hello {name}",
+  "hello": "Oh! Hello!",
+  "menu-item-translation-methods": "Translation methods",
+  "menu": {
+    "logout": "Log out"
+  },
+  "modify-item-button": "Modify",
+  "modify-key": "Modify data",
+  "my-own-key": "My own key",
+  "new_item_input": "New item to your list",
+  "notification": {
+    "success": "Your changes have been saved successfully."
+  },
+  "plural": "{value, plural, one {There is one # dog.} other {There are # dogs.}}",
+  "result_count": "{value, plural, one {showing one result} other {showing # results}}",
+  "send-to-email": "send to email",
+  "send-via-email": "Send via e-mail",
+  "share-button": "Share button",
+  "test": "This is another example",
+  "this_is_a_key": "This is a key",
+  "this_is_a_key_with_params": "This is key with params {key} {key2}",
+  "this_is_a_key_with_tags": "This is a key with tags <b>bold</b> <b><i>{key}</i></b>",
+  "this-is-random-key": "Random key",
+  "this-shows-translation-history": "I just changed it again, sorry again",
+  "users": {
+    "online": "{count, plural, one {There is # user online} other {There are # users online}}"
+  }
+}

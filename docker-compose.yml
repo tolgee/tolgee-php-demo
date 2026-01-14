@@ -1,0 +1,12 @@
+services:
+  php:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html
+      - ./src:/var/www/src
+      - ./data:/var/www/data
+    environment:
+      - TOLGEE_API_URL=https://app.tolgee.io
+      - TOLGEE_API_KEY=

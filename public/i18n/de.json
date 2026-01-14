@@ -1,0 +1,47 @@
+{
+  "add_button": "Hinzufügen",
+  "add-item-add-button": "Hinzufügen",
+  "add-item-input-placeholder": "Neuer Eintrag",
+  "app-title": "Was einpacken",
+  "app": {
+    "title": "Willkommen in unserer Demo-App"
+  },
+  "aptitlep-title-2": "Und vieles mehr",
+  "button": {
+    "save": "Speichern"
+  },
+  "delete-item-button": "Löschen",
+  "eat_pita": "Iss Pita!",
+  "edit-button": "Bearbeiten",
+  "edit-button\n                  ": "Bearbeiten",
+  "edit_button": "Bearbeiten",
+  "edit-button-item-key": "Eintragsschlüssel bearbeiten",
+  "edit-item-button": "Eintrag bearbeiten",
+  "greeting": "Hallo {name}",
+  "hello": "Hallo John!",
+  "menu-item-translation-methods": "Übersetzungsmethoden",
+  "menu": {
+    "logout": "Abmelden"
+  },
+  "modify-item-button": "Bearbeiten",
+  "modify-key": "Daten bearbeiten",
+  "my-own-key": "Mein eigener Schlüssel",
+  "new_item_input": "Neuer Eintrag zur Liste",
+  "notification": {
+    "success": "Deine Änderungen wurden erfolgreich gespeichert."
+  },
+  "plural": "{value, plural, one {Es gibt einen # Hund.} other {Es gibt # Hunde.}}",
+  "result_count": "{value, plural, one {ein Ergebnis anzeigen} other {# Ergebnisse anzeigen}}",
+  "send-to-email": "an E-Mail senden",
+  "send-via-email": "Per Email abschicken",
+  "share-button": "Teilen",
+  "test": "Dies ist ein weiteres Beispiel",
+  "this_is_a_key": "Dies ist ein Schlüssel",
+  "this_is_a_key_with_params": "Dies ist ein Schlüssel mit den Parametern {key} {key2}",
+  "this_is_a_key_with_tags": "Dies ist ein Schlüssel mit den Tags <b>bold</b> <b><i>{key}</i></b>",
+  "this-is-random-key": "Zufälliger Schlüssel",
+  "this-shows-translation-history": "Ich habe es gerade wieder geändert, tut mir erneut leid",
+  "users": {
+    "online": "{count, plural, one {Es ist # Benutzer online} other {Es sind # Benutzer online}}"
+  }
+}
