@@ -11,13 +11,18 @@ if (isset($_GET['lang'])) {
     setcookie('lang', $lang, time() + (365 * 24 * 60 * 60), '/');
 }
 
-$translator = new Translator($lang);
+// Development mode - enable Tolgee in-context editing
+$isDevelopment = getenv('TOLGEE_DEV_MODE') === 'true' || getenv('TOLGEE_DEV_MODE') === '1';
+
+$translator = new Translator($lang, $isDevelopment);
 $db = new Database();
 
 // Simple translation function
+// NOTE: Do NOT use htmlspecialchars here - it would corrupt the invisible characters!
+// The invisible wrapper characters are safe Unicode and don't need escaping.
 function t(string $key, array $params = []): string {
     global $translator;
-    return htmlspecialchars($translator->t($key, $params), ENT_QUOTES, 'UTF-8');
+    return $translator->t($key, $params);
 }
 
 $items = $db->getItems();
@@ -155,5 +160,32 @@ $languages = [
             return div.innerHTML;
         }
     </script>
+
+    <?php if ($isDevelopment): ?>
+    <!-- Tolgee In-Context Editing -->
+    <script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.development.umd.min.js"></script>
+    <script>
+        const { Tolgee, DevTools, ObserverPlugin } = window['@tolgee/web'];
+
+        console.log('Tolgee initializing...');
+        console.log('Available exports:', Object.keys(window['@tolgee/web']));
+
+        const tolgee = Tolgee()
+            .use(DevTools())
+            .use(ObserverPlugin())
+            .init({
+                language: '<?= htmlspecialchars($lang) ?>',
+                apiUrl: '<?= htmlspecialchars(getenv('TOLGEE_API_URL') ?: 'https://app.tolgee.io') ?>',
+                apiKey: '<?= htmlspecialchars(getenv('TOLGEE_API_KEY') ?: '') ?>',
+                observerOptions: {
+                    fullKeyEncode: true
+                }
+            });
+
+        tolgee.run()
+            .then(() => console.log('Tolgee running'))
+            .catch(err => console.error('Tolgee error:', err));
+    </script>
+    <?php endif; ?>
 </body>
 </html>

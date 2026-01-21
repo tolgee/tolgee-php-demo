@@ -2,6 +2,7 @@
   "add_button": "Přidat",
   "add-item-add-button": "Přidat",
   "add-item-input-placeholder": "Nová položka seznamu",
+  "app-subtitle-18930": "Zabal to!",
   "app-title": "Co si zabalit",
   "app": {
     "title": "Vítejte v naší ukázkové aplikaci"
@@ -10,7 +11,7 @@
   "button": {
     "save": "Uložit"
   },
-  "delete-item-button": "Smazat!",
+  "delete-item-button": "Smazat",
   "eat_pita": "Jezte pitu!",
   "edit-button": "Upravit toto",
   "edit-button\n                  ": "Upravit toto",

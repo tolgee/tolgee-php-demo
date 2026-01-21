@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.tolgee.io/cli-schema.json",
+  "format": "JSON_TOLGEE",
+  "pull": {
+    "path": "/data/i18n",
+    "languages": ["en", "cs", "fr", "de"]
+  }
+}

@@ -8,5 +8,18 @@ services:
       - ./src:/var/www/src
       - ./data:/var/www/data
     environment:
-      - TOLGEE_API_URL=https://app.tolgee.io
-      - TOLGEE_API_KEY=
+      - TOLGEE_API_URL=${TOLGEE_API_URL:-https://app.tolgee.io}
+      - TOLGEE_API_KEY=${TOLGEE_API_KEY:-}
+      - TOLGEE_DEV_MODE=${TOLGEE_DEV_MODE:-false}
+
+  # Tolgee CLI in watch mode - pulls translation changes automatically
+  tolgee-cli:
+    image: tolgee/cli
+    profiles:
+      - dev
+    volumes:
+      - ./public/i18n:/data/i18n
+      - ./.tolgeerc.json:/app/.tolgeerc.json:ro
+    environment:
+      - TOLGEE_API_KEY=${TOLGEE_API_KEY}
+    command: pull --watch
