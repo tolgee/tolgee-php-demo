@@ -76,8 +76,8 @@ Result:  Clickable, editable translation
 
 ```bash
 # Clone the PHP localization example
-git clone https://github.com/tolgee/php-in-context-example.git
-cd php-in-context-example
+git clone https://github.com/tolgee/tolgee-php-demo.git
+cd tolgee-php-demo
 
 # Configure your Tolgee credentials
 cat > .env << EOF
@@ -101,7 +101,7 @@ docker compose --profile dev up
 ## Project Structure
 
 ```
-php-in-context-example/
+tolgee-php-demo/
 ├── docker-compose.yml        # PHP 8.4 + Tolgee CLI services
 ├── Dockerfile                # Apache + PHP + SQLite
 ├── .tolgeerc.json            # Tolgee CLI configuration
@@ -147,18 +147,76 @@ These characters are:
 - ✅ Preserved in copy/paste
 - ✅ Detected by Tolgee Observer
 
-## Production Deployment
+## Enabling Development Mode
 
-Disable development mode for production to remove invisible markers:
+By default, you don't want to expose Tolgee dev tools or in-context editing capabilities to end users in production. The API key should never be bundled into client-side code, and the invisible character wrapping adds unnecessary overhead.
 
-```env
-TOLGEE_DEV_MODE=false
+However, **team members like translators or product managers often need to edit strings directly on production** - seeing translations in their real context is invaluable for quality.
+
+### The Tolgee Browser Plugin Solution
+
+The [Tolgee Browser Plugin](https://docs.tolgee.io/browser-plugin) solves this elegantly. It can **inject the API key and dev tools directly into Tolgee JS** on the client side, enabling in-context editing without any server-side credentials:
+
+1. Install the [Tolgee Chrome Extension](https://chromewebstore.google.com/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/)
+2. Configure the plugin with your Tolgee API key
+3. Visit your app with `?tolgeeDevelopment` parameter to load Tolgee JS
+4. The plugin injects credentials - in-context editing works without exposing keys server-side
+
+This way, only team members with the plugin installed can edit translations, while regular users see a normal production site.
+
+### Method Used in This Example
+
+```php
+// Development mode is enabled when:
+// - API key is provided (local development with .env)
+// - ?tolgeeDevelopment query param is present (for browser plugin)
+$isDevelopment = !empty($apiKey) || isset($_GET['tolgeeDevelopment']);
 ```
 
-Production builds will:
-- Skip invisible character wrapping
-- Not load Tolgee JS
-- Render clean, optimized HTML
+### Alternative Approaches for Your Application
+
+Depending on your security requirements, consider these patterns:
+
+#### Session-Based Toggle
+```php
+// Enable via: /toggle-tolgee?enable=1
+if (isset($_GET['enable'])) {
+    $_SESSION['tolgee_dev'] = $_GET['enable'] === '1';
+}
+$isDevelopment = $_SESSION['tolgee_dev'] ?? false;
+```
+
+#### Staging Environment Detection
+```php
+// Auto-enable on staging subdomains
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isDevelopment = str_contains($host, 'staging.')
+    || str_contains($host, 'dev.')
+    || $host === 'localhost';
+```
+
+#### IP Allowlist
+```php
+// Only enable for office/VPN IPs
+$allowedIPs = ['192.168.1.0/24', '10.0.0.0/8'];
+$isDevelopment = ipInRange($_SERVER['REMOTE_ADDR'], $allowedIPs);
+```
+
+#### Authenticated Users Only
+```php
+// Only for logged-in translators
+$isDevelopment = isLoggedIn() && currentUser()->hasRole('translator');
+```
+
+## Production Deployment
+
+In production, development mode should be **disabled** to:
+- Remove invisible character wrapping (cleaner HTML)
+- Skip loading Tolgee JS (faster page loads)
+
+Simply ensure no development triggers are active:
+- No `TOLGEE_API_KEY` in production env
+- Don't expose `?tolgeeDevelopment` parameter to end users
 
 ## Documentation & Resources
 

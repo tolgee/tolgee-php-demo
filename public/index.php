@@ -12,7 +12,10 @@ if (isset($_GET['lang'])) {
 }
 
 // Development mode - enable Tolgee in-context editing
-$isDevelopment = getenv('TOLGEE_DEV_MODE') === 'true' || getenv('TOLGEE_DEV_MODE') === '1';
+// Enabled by: API key present, ?tolgeeDevelopment query param, or TOLGEE_API_KEY env var
+$apiKey = getenv('TOLGEE_API_KEY') ?: '';
+$isDevelopment = !empty($apiKey)
+    || isset($_GET['tolgeeDevelopment']);
 
 $translator = new Translator($lang, $isDevelopment);
 $db = new Database();
@@ -166,25 +169,19 @@ $languages = [
     <script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.development.umd.min.js"></script>
     <script>
         const { Tolgee, DevTools, ObserverPlugin } = window['@tolgee/web'];
-
-        console.log('Tolgee initializing...');
-        console.log('Available exports:', Object.keys(window['@tolgee/web']));
-
         const tolgee = Tolgee()
             .use(DevTools())
             .use(ObserverPlugin())
             .init({
                 language: '<?= htmlspecialchars($lang) ?>',
                 apiUrl: '<?= htmlspecialchars(getenv('TOLGEE_API_URL') ?: 'https://app.tolgee.io') ?>',
-                apiKey: '<?= htmlspecialchars(getenv('TOLGEE_API_KEY') ?: '') ?>',
+                apiKey: '<?= htmlspecialchars($apiKey) ?>',
                 observerOptions: {
                     fullKeyEncode: true
                 }
             });
 
         tolgee.run()
-            .then(() => console.log('Tolgee running'))
-            .catch(err => console.error('Tolgee error:', err));
     </script>
     <?php endif; ?>
 </body>
