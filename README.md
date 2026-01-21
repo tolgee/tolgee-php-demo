@@ -182,7 +182,7 @@ Contributions are welcome! Please read our [Contributing Guide](https://github.c
 
 <p align="center">
   <a href="https://tolgee.io">
-    <img src="https://raw.githubusercontent.com/tolgee/tolgee-platform/main/logo.svg" alt="Tolgee Localization Platform Logo" width="200">
+    <img src="./logo.svg" alt="Tolgee Localization Platform Logo" width="200">
   </a>
 </p>
 
